@@ -1,0 +1,38 @@
+#popular {
+  padding: 50px 0;
+  h1 {
+    margin-bottom: 70px;
+    font-weight: 800;
+    font-size: 40px;
+    line-height: 150%;
+    color: #333333;
+  }
+  .popular {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+    &--btn {
+      padding: 70px 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      button {
+        padding: 15px 30px;
+        background-color: #f4683f;
+        color: white;
+        border: none;
+        font-size: 16px;
+        line-height: 150%;
+        font-weight: 600;
+        cursor: pointer;
+        border-radius: 30px;
+
+        &:hover {
+          background-color: #e3572c;
+        }
+      }
+    }
+  }
+}

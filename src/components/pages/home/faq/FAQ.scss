@@ -1,0 +1,60 @@
+#faq {
+  padding: 50px 0 100px 0px;
+  h1 {
+    margin-bottom: 50px;
+    font-weight: 800;
+    font-size: 40px;
+    line-height: 150%;
+    color: #333333;
+  }
+  .accordion {
+    width: 100%;
+
+    &__item {
+      border-bottom: 1px solid #e0e0e0;
+      padding: 16px 0;
+    }
+
+    &__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+
+      h3 {
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 150%;
+        color: #333333;
+      }
+
+      .accordion__icon {
+        font-size: 20px;
+        color: #333;
+        transition: transform 0.5s ease;
+      }
+    }
+
+    &__body {
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.5s ease;
+      opacity: 0;
+      padding-right: 30px;
+
+      p {
+        margin: 10px 0 0;
+        font-size: 17px;
+        font-weight: 500;
+        line-height: 160%;
+        color: #555555;
+      }
+
+      &.show {
+        max-height: 300px;
+        opacity: 1;
+        margin-top: 8px;
+      }
+    }
+  }
+}
