@@ -69,7 +69,6 @@ const Welcome = () => {
 
   return (
     <div style={{ background: `url("${bgHome}") no-repeat bottom/cover` }}>
-      <Header />
       <section id="welcome">
         <div className="container">
           <div className="welcome">
