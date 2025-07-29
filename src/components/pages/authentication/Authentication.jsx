@@ -2,7 +2,6 @@ import React from "react";
 import "./Authentication.scss";
 import { FcGoogle } from "react-icons/fc";
 
-
 const Authentication = () => {
   return (
     <div className="auth">
