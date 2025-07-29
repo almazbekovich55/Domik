@@ -6,6 +6,7 @@ import { Route, Routes } from "react-router-dom";
 import Authentication from "./components/pages/authentication/Authentication";
 import Favorite from "./components/pages/favorite/Favorite";
 import Admin from "./components/pages/admin/Admin";
+import Header from "./components/layout/header/Header";
 
 const App = () => {
   const mainRoutes = [
@@ -38,7 +39,7 @@ const App = () => {
 
   return (
     <div className="app">
-      {/* <Header /> */}
+      <Header />
       <Routes>
         {mainRoutes.map((el) => (
           <Route path={el.path} element={el.element} key={el.id} />
