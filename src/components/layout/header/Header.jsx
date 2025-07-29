@@ -18,7 +18,6 @@ const Header = () => {
     const onScroll = () => {
       setScrolled(window.scrollY > 50);
     };
-
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -28,7 +27,11 @@ const Header = () => {
       <div className="container">
         <div className="header">
           <div className="header--logo">
-            <img src={scrolled ? dark : logo} alt="img" onClick={() => nav("/")} />
+            <img
+              src={scrolled ? dark : logo}
+              alt="img"
+              onClick={() => nav("/")}
+            />
             <div className="header--logo__location">
               <ImLocation className="icon" />
               <span>Москва</span>
