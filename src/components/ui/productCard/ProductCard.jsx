@@ -1,14 +1,13 @@
 import React from "react";
 import "./ProductCard.scss";
-import { FaBed, FaTableTennis, FaSpa, FaSwimmingPool } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { CiHeart } from "react-icons/ci";
-import { TiHeartFullOutline } from "react-icons/ti";
 import { RiUserLine } from "react-icons/ri";
 import bed from "../../../assets/images/icon_bed.svg";
 import cube from "../../../assets/images/icon_entertainment.svg";
 import banya from "../../../assets/images/icon_banya.svg";
 import bas from "../../../assets/images/icon_waterpool.svg";
+import { NavLink } from "react-router-dom";
 
 const ProductCard = ({ el }) => {
   const dispatch = useDispatch();
@@ -16,9 +15,9 @@ const ProductCard = ({ el }) => {
   return (
     <div className="card">
       <div className="card__image">
-        <img src={el.image} alt="Домик" />
+        <img src={el.house_images[1]?.image} alt="Домик" />
         <div className="card__capacity">
-          <RiUserLine /> до {el.people}
+          <RiUserLine /> до {el.count_people}
         </div>
         <button className="card__like">
           <CiHeart />
@@ -30,29 +29,42 @@ const ProductCard = ({ el }) => {
 
         <ul className="card__features">
           <li>
-            <img src={bed} alt="img" /> 5 спальных мест
+            <img src={bed} alt="img" /> {el.bathroom} спальных мест
           </li>
-          <li>
-            <img src={cube} alt="img" /> Настольный теннис
-          </li>
-          <li>
-            <img src={banya} alt="img" /> Баня
-          </li>
-          <li>
-            <img src={bas} alt="img" /> Бассейн
-          </li>
+          {el.table_tennis && (
+            <li>
+              <img src={cube} alt="img" /> Настольный теннис
+            </li>
+          )}
+          {el.billiards && (
+            <li>
+              <img src={cube} alt="img" /> Бильярд
+            </li>
+          )}
+          {el.bath_house && (
+            <li>
+              <img src={banya} alt="img" /> Баня
+            </li>
+          )}
+          {el.sauna && (
+            <li>
+              <img src={banya} alt="img" /> Сауна
+            </li>
+          )}
+          {el.swimming_pool && (
+            <li>
+              <img src={bas} alt="img" /> Бассейн
+            </li>
+          )}
         </ul>
 
         <div className="card__footer">
           <span className="card__price">
             <strong>
-              {" "}
-              от <span>{el.price}</span>₽ / сутки
+              от <span>{el.weekdays_price}</span>₽ / сутки
             </strong>
           </span>
-          <a href="#" className="card__link">
-            Подробнее
-          </a>
+          <NavLink className="card__link">Подробнее</NavLink>
         </div>
       </div>
     </div>
