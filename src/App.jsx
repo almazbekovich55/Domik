@@ -7,6 +7,7 @@ import Authentication from "./components/pages/authentication/Authentication";
 import Favorite from "./components/pages/favorite/Favorite";
 import Admin from "./components/pages/admin/Admin";
 import Header from "./components/layout/header/Header";
+import Category from "./components/pages/category/Category";
 
 const App = () => {
   const mainRoutes = [
@@ -34,6 +35,11 @@ const App = () => {
       id: 5,
       element: <Favorite />,
       path: "/",
+    },
+      {
+      id: 6,
+      element: <Category />,
+      path: "/category/:categoryId",
     },
   ];
 
