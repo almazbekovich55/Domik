@@ -6,13 +6,11 @@ import { BiLogoVk } from "react-icons/bi";
 import { MdWhatsapp } from "react-icons/md";
 import { AiOutlineYoutube } from "react-icons/ai";
 import { RiTelegram2Fill } from "react-icons/ri";
-
 import { useState } from "react";
-import React from "react";
-import Header from "../../../layout/header/Header";
 import axios from "axios";
 import API_BASE_URL from "../../../../config/api";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Welcome = () => {
   const today = new Date().toISOString().split("T")[0];
@@ -20,7 +18,6 @@ const Welcome = () => {
   const [toDate, setToDate] = useState("");
   const [priceRange, setPriceRange] = useState([13000, 150000]);
   const [category, setCategory] = useState([]);
-
   const handleFromDateChange = (e) => {
     const value = e.target.value;
     setFromDate(value);
@@ -87,7 +84,9 @@ const Welcome = () => {
                 <Slider {...settings}>
                   {category.map((el) => (
                     <div className="welcome--left__category--card" key={el.id}>
-                      <img src={el.image} alt="img" />
+                      <Link to={`/category/${el.id}`}>
+                        <img src={el.image} alt="img" />
+                      </Link>
                       <h4>{el.category_name}</h4>
                     </div>
                   ))}

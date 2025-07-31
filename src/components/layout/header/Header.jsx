@@ -2,7 +2,7 @@ import React from "react";
 import "./Header.scss";
 import logo from "../../../assets/images/logo_light.svg";
 import dark from "../../../assets/images/logo_dark.svg";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { CiHeart, CiSearch } from "react-icons/ci";
 import { CiUser } from "react-icons/ci";
 import { ImLocation } from "react-icons/im";
@@ -13,6 +13,7 @@ import { useState } from "react";
 const Header = () => {
   const nav = useNavigate();
   const [scrolled, setScrolled] = useState(false);
+  const pathName = useLocation().pathname;
 
   useEffect(() => {
     const onScroll = () => {
@@ -23,12 +24,12 @@ const Header = () => {
   }, []);
 
   return (
-    <header id="header" className={scrolled ? "scrolled" : ""}>
+    <header id={pathName === "/" ? "header" : "header--sticky"} className={scrolled ? "scrolled" : ""}>
       <div className="container">
         <div className="header">
           <div className="header--logo">
             <img
-              src={scrolled ? dark : logo}
+              src={pathName === "/" ? (scrolled ? dark : logo) : dark}
               alt="img"
               onClick={() => nav("/")}
             />
