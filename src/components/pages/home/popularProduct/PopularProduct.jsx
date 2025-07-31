@@ -7,6 +7,7 @@ import { getProduct } from "../../../../redux/CreateProductSlice";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import axios from "axios";
+import API_BASE_URL from "../../../../config/api";
 
 const PopularProduct = () => {
   const dispatch = useDispatch();
@@ -14,11 +15,9 @@ const PopularProduct = () => {
 
   async function getAllProduct() {
     try {
-      let res = await axios.get(
-        `https://api-crud.elcho.dev/api/v1/55ec7-d2f4e-c6620/dom`
-      );
-      let { data } = res.data;
-      dispatch(getProduct(data));
+      let res = await axios.get(`${API_BASE_URL}/ru/house`);
+      dispatch(getProduct(res.data));
+      console.log(res.data);
     } catch (error) {
       console.log(error.message);
     }
@@ -33,8 +32,8 @@ const PopularProduct = () => {
       <div className="container">
         <h1>Популярное в каталоге</h1>
         <div className="popular">
-          {product.slice(0, 9).map((el) => (
-            <ProductCard el={el} key={el._id} />
+          {product?.slice(0, 9).map((el) => (
+            <ProductCard el={el} key={el.id} />
           ))}
         </div>
         <div className="popular--btn">
