@@ -6,18 +6,20 @@ import { BiLogoVk } from "react-icons/bi";
 import { MdWhatsapp } from "react-icons/md";
 import { AiOutlineYoutube } from "react-icons/ai";
 import { RiTelegram2Fill } from "react-icons/ri";
-import welcomeImg1 from "../../../../assets/images/welcome1.svg";
-import welcomeImg2 from "../../../../assets/images/welcome2.svg";
-import welcomeImg3 from "../../../../assets/images/welcome3.svg";
+
 import { useState } from "react";
 import React from "react";
 import Header from "../../../layout/header/Header";
+import axios from "axios";
+import API_BASE_URL from "../../../../config/api";
+import { useEffect } from "react";
 
 const Welcome = () => {
   const today = new Date().toISOString().split("T")[0];
   const [fromDate, setFromDate] = useState(today);
   const [toDate, setToDate] = useState("");
   const [priceRange, setPriceRange] = useState([13000, 150000]);
+  const [category, setCategory] = useState([]);
 
   const handleFromDateChange = (e) => {
     const value = e.target.value;
@@ -61,11 +63,13 @@ const Welcome = () => {
     autoplaySpeed: 2000,
   };
 
-  const houseCategory = [
-    { id: 1, image: welcomeImg1, title: "С бассейном" },
-    { id: 2, image: welcomeImg2, title: "Семейные" },
-    { id: 3, image: welcomeImg3, title: "Хиты продаж" },
-  ];
+  async function getCategory() {
+    let res = await axios(`${API_BASE_URL}/ru/category/`);
+    setCategory(res.data);
+  }
+  useEffect(() => {
+    getCategory();
+  }, []);
 
   return (
     <div style={{ background: `url("${bgHome}") no-repeat bottom/cover` }}>
@@ -81,10 +85,10 @@ const Welcome = () => {
               </p>
               <div className="welcome--left__category">
                 <Slider {...settings}>
-                  {houseCategory.map((el) => (
+                  {category.map((el) => (
                     <div className="welcome--left__category--card" key={el.id}>
                       <img src={el.image} alt="img" />
-                      <h4>{el.title}</h4>
+                      <h4>{el.category_name}</h4>
                     </div>
                   ))}
                 </Slider>
