@@ -1,6 +1,11 @@
 import React from "react";
 import "./CategoryCard.scss";
 import { FaBed, FaStar } from "react-icons/fa";
+import {
+  GiTable,
+  GiHotSurface,
+  GiHockey
+} from "react-icons/gi";
 import { MdPool } from "react-icons/md";
 import { GiWoodPile } from "react-icons/gi";
 import { GiPerspectiveDiceSixFacesRandom } from "react-icons/gi";
@@ -69,8 +74,6 @@ const CategoryCard = ({ el }) => {
             </li>
           )}
 
-          
-
           {el?.bath_house && (
             <li>
               <GiWoodPile />
@@ -78,10 +81,39 @@ const CategoryCard = ({ el }) => {
             </li>
           )}
 
+          {el?.bathhouse_without_brooms && (
+            <li>
+              <GiWoodPile />
+              Баня без веников
+            </li>
+          )}
+
           {el?.swimming_pool && (
             <li>
               <MdPool />
               Бассейн
+            </li>
+          )}
+
+          {el?.table_tennis && (
+            <li>
+              <GiTable />
+
+              Настольный теннис
+            </li>
+          )}
+
+          {el?.sauna && (
+            <li>
+             <GiHotSurface />
+              Сауна
+            </li>
+          )}
+
+          {el?.air_hockey && (
+            <li>
+               <GiHockey />
+              Аэрохоккей
             </li>
           )}
         </ul>

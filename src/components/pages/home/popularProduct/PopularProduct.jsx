@@ -1,6 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React from "react";
 import "./PopularProduct.scss";
-import productImg from "../../../../assets/images/product.png";
 import ProductCard from "../../../ui/productCard/ProductCard";
 import { useEffect } from "react";
 import { getProduct } from "../../../../redux/CreateProductSlice";

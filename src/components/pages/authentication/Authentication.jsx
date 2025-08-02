@@ -7,7 +7,6 @@ import {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
-  signOut,
 } from "firebase/auth";
 import { initializeApp } from "firebase/app";
 import { useNavigate } from "react-router-dom";
