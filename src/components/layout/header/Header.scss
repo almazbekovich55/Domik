@@ -76,6 +76,15 @@
       align-items: center;
       gap: 20px;
 
+      &__user {
+        img {
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+      }
+
       a {
         cursor: pointer;
         transition: 0.5s ease;
@@ -111,7 +120,8 @@
       }
 
       > :first-child,
-      > :nth-child(2) {
+      > :nth-child(2),
+      :nth-child(3) {
         color: white;
         font-size: 20px;
         transition: 0.5s ease;

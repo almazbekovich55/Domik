@@ -69,6 +69,8 @@ const CategoryCard = ({ el }) => {
             </li>
           )}
 
+          
+
           {el?.bath_house && (
             <li>
               <GiWoodPile />
