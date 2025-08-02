@@ -11,7 +11,7 @@ import API_BASE_URL from "../../../../config/api";
 
 const PopularProduct = () => {
   const dispatch = useDispatch();
-  const { product } = useSelector((s) => s.mainReducer);
+  const { product } = useSelector((s) => s.product);
 
   async function getAllProduct() {
     try {
